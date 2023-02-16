@@ -1,0 +1,12 @@
+.main-box {
+    height: 550px;
+    width: 500px;
+    border:1px solid transparent;
+    left:50%;
+    top:50%;
+    position: absolute;
+    margin-left:-250px;
+    margin-top:150px;
+    border-radius:10px;
+    background-color: lavender;
+}
