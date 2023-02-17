@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {v4 as uuidv4} from 'uuid';
+import styles from './Input.module.css'
 
 function Input({ setTodos }) {
 
@@ -33,9 +34,9 @@ function Input({ setTodos }) {
     }
 
     return (
-        <form onSubmit={handleAdd}>
-            <input placeholder='내용을 입력하세요...' value={content} onChange={handleContent}/>
-            <button>추가</button>
+        <form className={styles.form} onSubmit={handleAdd}>
+            <input placeholder='내용을 입력하세요...' className={styles.input} value={content} onChange={handleContent}/>
+            <button className={styles.button}>추가</button>
         </form>
     );
 }

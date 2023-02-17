@@ -1,5 +1,6 @@
 import React from 'react';
 import {BsTrash} from 'react-icons/bs'
+import styles from './Todo.module.css'
 
 function Todo({ item, setTodos }) {
 
@@ -18,11 +19,14 @@ function Todo({ item, setTodos }) {
         
 
     return (
-        <div key={item.id}>
-            <input checked={item.status === 'completed'} onClick={handleSwitch} type="checkbox" onChange={handleChange} id="checkid"/>
-            <label htmlFor='checkid'>{item.text}</label>
-            <button onClick={handleDelete}><BsTrash/></button>
-        </div>
+        <li className={styles.todo} key={item.id}>
+            <input className={styles.checkbox} checked={item.status === 'completed'} onClick={handleSwitch} type="checkbox" onChange={handleChange} id="checkid"/>
+            <label className={styles.text} htmlFor='checkid'>{item.text}</label>
+            <span className={styles.icon}>
+                <button className={styles.button} onClick={handleDelete}><BsTrash/></button>
+            </span>
+            
+        </li>
     );
 }
 

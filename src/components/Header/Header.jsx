@@ -1,11 +1,12 @@
 import React from 'react';
+import  styles from './Header.module.css';
 
 function Header({ filters, filter, onFilterChange }) {
     return (
-        <header>
-            <ul>
+        <header className={styles.header}>
+            <ul className={styles.filters}>
                 {filters.map((value, index) => <li key={index}>
-                    <button onClick={(e) => (onFilterChange(value),console.log(value))}>{value}</button>
+                    <button className={`${styles.filter} ${filter === value && styles.selected}`} onClick={(e) => (onFilterChange(value),console.log(index))}>{value}</button>
                 </li>)}
             </ul>
         </header>

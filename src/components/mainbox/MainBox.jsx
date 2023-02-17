@@ -3,8 +3,8 @@ import TodosList from '../todoslist/TodosList';
 import './style.css'
 import { useState } from 'react';
 
-import Input from '../input/Input';
 import Header from '../Header/Header';
+import Input from '../input/Input';
 
 const filters = ['all', 'active', 'completed']
 function MainBox() {
@@ -18,12 +18,11 @@ function MainBox() {
     
 
     return (
-        <div className='main-box'>
+        <>
             <Header filters={filters} filter={filter} onFilterChange={setFilter} />
             <TodosList filter={filter} todos={todos} setTodos={setTodos} />
             <Input setTodos={setTodos}/>
-            
-        </div>
+        </>
     );
 }
 
