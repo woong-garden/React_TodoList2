@@ -17,7 +17,7 @@ function Input({ setTodos }) {
         }
 
         //공백 오류처리
-        if(content.trim().length == 0){
+        if(content.trim().length === 0){
             return alert('내용을 입력해주세요!')
         }
 
