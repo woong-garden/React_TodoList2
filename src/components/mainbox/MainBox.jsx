@@ -1,7 +1,7 @@
 
 import TodosList from '../todoslist/TodosList';
 import './style.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Header from '../Header/Header';
 import Input from '../input/Input';
@@ -9,14 +9,13 @@ import Input from '../input/Input';
 
 const filters = ['all', 'active', 'completed']
 function MainBox() {
-    const [todos, setTodos] = useState([
-        {id: '123',text:'장보기',status:'active'},
-        {id: '124',text:'공부',status:'active'},
-        {id: '125',text:'놀기',status:'active'}
-    ])
+    const [todos, setTodos] = useState(readTodosFromLocalStorage);
 
     const [filter, setFilter] = useState(filters[0])
     
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify(todos))
+    },[todos])
 
     return (
         <>
@@ -28,3 +27,9 @@ function MainBox() {
 }
 
 export default MainBox;
+
+function readTodosFromLocalStorage() {
+    console.log('readTodosFromLocalStorage')
+    const todos = localStorage.getItem('todos');
+    return todos ? JSON.parse(todos) : [];
+}

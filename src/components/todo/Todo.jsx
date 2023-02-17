@@ -10,6 +10,7 @@ function Todo({ item, setTodos }) {
 
     const handleSwitch = (updated) => {
         setTodos((prev) => prev.map(t => t.id === updated.id ? updated : t))
+        console.log(item.id)
     }
 
     const handleChange = (e) => {
@@ -20,8 +21,8 @@ function Todo({ item, setTodos }) {
 
     return (
         <li className={styles.todo} key={item.id}>
-            <input className={styles.checkbox} checked={item.status === 'completed'} onClick={handleSwitch} type="checkbox" onChange={handleChange} id="checkid"/>
-            <label className={styles.text} htmlFor='checkid'>{item.text}</label>
+            <input className={styles.checkbox} checked={item.status === 'completed'} onClick={handleSwitch} type="checkbox" onChange={handleChange} id={item.id}/>
+            <label className={styles.text} htmlFor={item.id}>{item.text}</label>
             <span className={styles.icon}>
                 <button className={styles.button} onClick={handleDelete}><BsTrash/></button>
             </span>
