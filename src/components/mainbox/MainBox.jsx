@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Header from '../Header/Header';
 import Input from '../input/Input';
 
+
 const filters = ['all', 'active', 'completed']
 function MainBox() {
     const [todos, setTodos] = useState([

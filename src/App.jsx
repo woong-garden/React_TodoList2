@@ -1,11 +1,13 @@
 import './App.css';
 import MainBox from './components/mainbox/MainBox';
+import { DarkModeProvider } from './context/DarkModeContext';
 
-function App() {
+
+function App({ DarkModeContext }) {
   return (
-    <>
-      <MainBox/>
-    </>
+    <DarkModeProvider>
+      <MainBox DarkModeContext={DarkModeContext}/>
+    </DarkModeProvider>
   );
 }
 
